@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+      <title>Sistema de Help Desk</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" type="text/css"  href="../css/bootstrap.min.css" />
+      <link rel="stylesheet" href="../_css/estilo.css">
+    
+    <style>           
+        .b:hover{
+          border: 1px solid #cecece;
+           border-radius: 40%;
+          background-color:#cecece;
+        }  
+    </style>
+        
+  </head>
+  <body>  
+    <nav class="navbar navbar-inverse table-hover" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header ">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+<!-- ----------------Logo da Empresa ------------------------------------------------------------------------------ -->
+            <a class="navbar-brand" href="/home">SysHD!</a>
+        </div>
+<!-- ----------------Logo da Empresa ------------------------------------------------------------------------------ -->        
+        <div id="menu" class="navbar-collapse collapse" >
+          <ul class="nav navbar-nav">
+            <li><a href="/home">Caixa Diretor</a></li>
+            <li><a href="/caixa_pessoal">Caixa Pessoal</a></li>  
+<!-- ----------------Começa o DROPDOWN ------------------------------------------------------------------------------ -->            
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >Gerênciar <span class="caret"></span></a>
+                <ul class="dropdown-menu " >
+                  <li><a href="/nav/usuario">Usuários</a></li>
+                  <li><a href="nav/gerenciaservi/servico.html">Serviços</a></li>
+                  <li><a href="#">Setores</a></li>
+                </ul>
+<!-- ----------------Finaliza o DROPDOWN ------------------------------------------------------------------------------ -->
+            </li>
+          </ul>
+<!-- ----------------Botão de Logout ------------------------------------------------------------------------------ -->
+
+    <form class="navbar-form navbar-right">
+      <a class="btn btn-danger" href="/sair">Sair</a>
+    </form>
+<!-- ----------------Botão de Logout ------------------------------------------------------------------------------ -->                 
+      </div>
+    </nav>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <?= $this->content() ?>
+  </body>
+</html>

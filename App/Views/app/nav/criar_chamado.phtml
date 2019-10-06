@@ -1,0 +1,59 @@
+<div class="container">
+    
+    <form method="POST" action="/nav/cadastrarChamado">
+        <div class="form-group">
+            <label for="prioridade">prioridade</label>
+            <select name="prioridade" class="form-control" id="prioridade" required>
+                <option> </option>                
+                <option >Baixa</option>
+                <option >Normal</option>
+                <option >Alta</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea class="form-control" rows="3" id="descricao" name="descricao"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="setor">Setor</label>
+            <select name="setor" class="form-control" id="setor" required>
+                <option > </option>
+                <option >Nivel 1</option>
+                <option >Nivel 2</option>
+                <option >Diretor</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="servico">Serviço</label>
+            <select name="servico" class="form-control" id="servico">
+                <option > </option>
+                <option >Nivel 1-Queda de rede geral</option>
+                <option >Nivel 1-Login invalido</option>
+                <option >Nivel 1-Sistema operacional com erro</option>
+                <option >Nivel 1-Esqueceu senha</option>
+                <option >Nivel 2-Troca de hardware</option>
+                <option >Nivel 2-Troca de software</option>
+                <option >Nivel 2-Solicitar equipamento novo</option>
+                <?php session_start(); 
+                    if($_SESSION['setor'] != "Nivel 1") { ?>
+                    <option >Diretor-Solicitar autorização de compra</option>
+                    <option >Diretor-Autorização remoção de equipamento</option>
+                <?php } ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select name="status" class="form-control" id="status" required>
+                <option > </option>
+                <option >Pendente</option>
+                <option >Aguardando</option>
+                <option >Analise</option>
+            </select>
+        </div>
+        <?php if($this->view->erroAutenticacao){ ?>
+            <small class="form-text text-danger">Erro ao tentar cadastrar usuario existente</small>
+        <?php }?>
+        <input type="submit" class="btn btn-primary pull-right" value="Salvar">
+    </form>
+        <a class="btn-group btn btn-warning" href="/home">Cancelar</a></li>
+</div>

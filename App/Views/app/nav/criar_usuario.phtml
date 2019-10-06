@@ -1,0 +1,38 @@
+<div class="container">
+    <form method="POST" action="/nav/cadastrar">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required maxlength="100">
+        </div>
+        <div class="form-group">
+            <label for="matricula">Matrícula:</label>
+            <input name="matricula" type="text" class="form-control" id="matricula" placeholder="Informe sua matrícula" required maxlength="8">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input name="email" type="text" class="form-control" id="email" placeholder="Informe seu e-mail" required>
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone:</label><br>
+            <input name="telefone" type="text" class="form-control" id="telefone" maxlength="14">
+        </div>
+        <div class="form-group">
+            <label for="id_setor">Setor</label>
+            <select name="id_setor" class="form-control" id="id_setor" required>
+                <option value="null"> </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">Diretor</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input name="senha" type="password" class="form-control" id="senha" placeholder="Cadastrar senha">
+        </div>
+        <?php if($this->view->erroAutenticacao){ ?>
+            <small class="form-text text-danger">Erro ao tentar cadastrar usuario existente</small>
+        <?php }?>
+        <input type="submit" class="btn btn-primary pull-right" value="Salvar">
+    </form>
+        <a class="btn-group btn btn-warning" href="/nav/usuario">Cancelar</a></li>
+</div>

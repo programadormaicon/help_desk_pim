@@ -1,0 +1,79 @@
+<div class="container">
+    <p>
+<!-- ----------------Filtro de Pesquisa ------------------------------------------------------------------------------ -->                 
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">filtros de Pesquisa de Chamados
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Serviços :
+              <select id="seleciona">
+                <option value="servico">Pedido de Mouse</option>
+                <option value="servico">Troca de Teclado</option>
+                <option value="servico">Gabinete</option>
+                <option value="servico">Formatar</option>
+              </select>
+          </a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Número &nbsp;: <input type="text"></a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Status &nbsp;&nbsp; &nbsp;: 
+              <select id="seleciona2">
+                <option value="status">Concluido</option>
+                <option value="status">Em espera</option>
+                <option value="status">Cancelado</option>
+                <option value="status">Em atendimento</option>
+              </select>
+          </a></li>
+          <li><button type="submit" class="btn btn-primary pull-right" value="buscar">Buscar</button></li>
+        </ul>
+<!-- ----------------Filtro de Pesquisa ------------------------------------------------------------------------------ -->                 
+      </div>
+    </p>
+    <p>
+        <div class="btn-group"><a class="btn btn-primary" href="/nav/criar_chamado">Criar Novo Chamado</a></div>
+    <!-- ----------------Opções de gerencia de usuarios ------------------------------------------------------------------------------ -->
+    </p>
+
+    <div class="table-resnposive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Número</th>
+            <th>Prioridade</th>
+            <th>Descrição</th>
+            <th>Nivel</th>            
+            <th>Nome</th>
+            <th>Serviço</th>
+            <th>Status</th> 
+          </tr>
+        </thead>
+        <tbody >
+          <?php //armaznr todos os dados do metodo em uma variavel
+              $dados = $this->view->chamados; 
+                if($dados > 0){
+                    for($i = 0; $i < count($dados); $i++){
+                        echo"<tr>";
+                        foreach($dados[$i] as $key => $value){
+                            if($key!="id_chamado" ){
+                                if($value !="Concluido"){
+                                    echo "<td>".$value."</td>";
+                                }  
+                            }
+                        }?>
+                        <td>
+                          <a class="btn b" href="/excluir?id=<?php echo $dados[$i]['id_chamado'];?>"><img src="icons/icon_cancel.png" alt="Cancelar chamado" title="Cancelar chamado"></a>
+
+                          <a class="btn b" href=""><img src="icons/icon.png" alt="Atualizar chamado" title="Atualizar chamado"></a>
+
+                          <a class="btn b" href="/baixa?id=<?php echo $dados[$i]['id_chamado'];?>"><img src="icons/icon_read.png" alt="Solicitar Baixa" title="Solicitar Baixa"></a>
+
+                          <a class="btn b" href=""><img src="icons/icon_send.png" alt="Encaminhar chamado" title="Encaminhar chamado"></a>
+                        </td>
+                      <?php
+                        echo"</tr>";
+                    }
+                }
+          ?>  
+        </tbody>
+      </table>
+    </div>
+</div>
+  
